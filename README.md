@@ -50,12 +50,12 @@ graph TD
     subgraph Qwen2 Model
         Qwen2 --> Qwen2Blocks[Stacked Qwen2 Blocks];
         Qwen2Blocks --> FinalNorm[RMSNorm];
-        FinalNorm --> LMHead[LM Head (Linear Layer)];
+        FinalNorm --> LMHead["LM Head (Linear Layer)"];
     end
 
     LMHead --> Output[Output Logits];
 
-    subgraph Qwen2 Block (x N)
+    subgraph "Qwen2 Block (x N)"
         BlockInput[Block Input] --> Norm1[RMSNorm];
         Norm1 --> Attention[Attention Layer];
         Attention --> Add1[Residual Connection];
